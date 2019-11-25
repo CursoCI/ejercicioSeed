@@ -20,7 +20,8 @@ pipeline {
 		stage('Configuracion sin Test') {
 			steps {
 				bat 'mvn install -DskipTests' 
-				echo "${POM_VERSION}"
+				def version = sh script: 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true
+				echo "${version}
 			}
 		}
 		
