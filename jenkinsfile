@@ -34,7 +34,7 @@ pipeline {
 		
 		stage('SonarQube analysis') { 
 			when {
-				branch 'desarrollo'
+				expression { BRANCH_NAME == /(desarrollo)/ }
 			    }
 			steps {
 				withSonarQubeEnv('SonarCI') { 
