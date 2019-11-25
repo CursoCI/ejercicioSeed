@@ -18,7 +18,7 @@ public class UsuarioWizardTest {
 	UsuarioWizard userWizard;
 	
 	@BeforeClass
-	public void iniciar() {
+	public static void iniciar() {
 		userWizard = new UsuarioWizard();
 	}
 
