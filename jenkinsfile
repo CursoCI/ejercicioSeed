@@ -7,5 +7,12 @@ pipeline {
 				git url: 'https://github.com/CursoCI/ejercicioJenkinsFile.git', branch: 'desarrollo'
 			}
 		}
+		
+		
+		stage('Configuracion ') {
+			steps {
+				
+			}
+		}
 	}
 }
