@@ -64,7 +64,18 @@ pipeline {
 		
 		stage('Pruebas Funcionales') {
 			steps {
+				input "¿Promocionar la entrega?"
 				echo 'Pruebas funcionales'
+			}
+		}
+		
+		stage('Despliegue') {
+			environment { 
+                		AN_ACCESS_KEY = credentials('deployer') 
+            		}
+			steps {
+				// Copiamos el artefacto generado a la carpeta del servidor
+				bat "curl --fail -v -u $AN_ACCESS_KEY_USR:$AN_ACCESS_KEY_PSW -T target/*.war http:/localhost:8081/resources/manager/text/deploy?path=JenkinsFile&update=true"
 			}
 		}
 		
