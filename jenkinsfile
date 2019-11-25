@@ -13,16 +13,27 @@ pipeline {
 		}
 		
 		
-		stage('Configuracion ') {
+		stage('Configuracion sin Test') {
 			steps {
 				bat 'mvn install -DskipTests' 
-			    }
-			    post {
-				success {
-				    junit 'target/surefire-reports/**/*.xml' 
-				}
-			    }
+			}
 		}
+		
+		stage('SonarQube analysis') { 
+			steps {
+				withSonarQubeEnv('SonarCI') { 
+				  bat 'mvn sonar:sonar ' + 
+				  '-f ./pom.xml ' +
+				  '-Dsonar.projectKey=cursoCImaven ' +
+				  '-Dsonar.language=java ' +
+				  '-Dsonar.sources=. ' +
+				  '-Dsonar.tests=. ' +
+				  '-Dsonar.java.binaries=./target/classes ' +
+				  '-Dsonar.test.inclusions=**/*Test*/** ' +
+				  '-Dsonar.exclusions=**/*Test*/**'
+				}
+			}
+		}	
 		
 		
 	}
