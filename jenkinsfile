@@ -60,7 +60,13 @@ pipeline {
 					echo 'No se ha realizado correctamente el analisis del código en Sonar'
 				}
 			}
-		}	
+		}
+		
+		stage('Pruebas Funcionales') {
+			steps {
+				echo 'Pruebas funcionales'
+			}
+		}
 		
 		
 	}
