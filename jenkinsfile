@@ -70,7 +70,7 @@ pipeline {
 		
 		stage('Despliegue') {
 			environment { 
-                		AN_ACCESS_KEY = credentials('deployer') 
+                		AN_ACCESS_KEY = credentials('f0ac89e0-0648-428a-9dd2-8e02068a5292') 
             		}
 			steps {
 				// Copiamos el artefacto generado a la carpeta del servidor
