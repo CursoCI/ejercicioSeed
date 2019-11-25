@@ -15,7 +15,7 @@ pipeline {
 		
 		stage('Configuracion ') {
 			steps {
-				bat 'mvn clean install test package sonar:sonar' 
+				bat 'mvn clean install sonar:sonar' 
 			    }
 			    post {
 				success {
