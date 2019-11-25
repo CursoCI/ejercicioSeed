@@ -36,11 +36,7 @@ pipeline {
 		}
 		
 		stage('SonarQube analysis') { 
-			when {
-				expression { 
-					${params.rama} == 'desarrollo' 
-				}
-			    }
+			
 			steps {
 				withSonarQubeEnv('SonarCI') { 
 				  bat 'mvn sonar:sonar ' + 
