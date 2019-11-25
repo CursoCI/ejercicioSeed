@@ -77,7 +77,7 @@ pipeline {
 			  }
 			steps {
 				// Copiamos el artefacto generado a la carpeta del servidor
-				bat "copy target/${IMAGE}-${VERSION}.war C:/Tomcat/webapps/"
+				bat 'copy target/${IMAGE}-${VERSION}.war "C:/Tomcat/webapps/"'
 			}
 		}
 		
