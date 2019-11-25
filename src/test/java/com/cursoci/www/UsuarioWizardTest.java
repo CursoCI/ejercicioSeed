@@ -15,12 +15,7 @@ import junit.framework.TestCase;
 
 public class UsuarioWizardTest {
 	
-	UsuarioWizard userWizard;
-	
-	@Before
-	public void iniciar() {
-		userWizard = new UsuarioWizard();
-	}
+	UsuarioWizard userWizard = new UsuarioWizard();
 
 	@Test
 	public void testGetUser() {
