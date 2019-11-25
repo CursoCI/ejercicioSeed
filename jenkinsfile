@@ -34,7 +34,7 @@ pipeline {
 		
 		stage('SonarQube analysis') { 
 			when {
-				branch 'master'
+				branch 'desarrollo'
 			    }
 			steps {
 				withSonarQubeEnv('SonarCI') { 
