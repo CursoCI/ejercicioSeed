@@ -7,11 +7,6 @@ pipeline {
 	   parameters {
         choice(name: 'rama', choices: ['desarrollo', 'produccion'], description: 'Seleccionar la rama sobre la que realizar la integración')
     }
-	 environment {
-	    //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
-	    ARTEFACT_ID = readMavenPom().getArtifactId()
-	    VERSION = readMavenPom().getVersion()
-	 }
 	
 	stages{
 		
@@ -25,7 +20,7 @@ pipeline {
 		stage('Configuracion sin Test') {
 			steps {
 				bat 'mvn install -DskipTests' 
-				echo "${ARTEFACT_ID}"
+				echo "${POM_VERSION}"
 			}
 		}
 		
