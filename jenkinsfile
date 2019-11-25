@@ -38,7 +38,7 @@ pipeline {
 		stage('SonarQube analysis') { 
 			when {
 				expression { 
-					${params.rama} == 'desarrollo' 
+					"${params.rama}" == 'desarrollo' 
 				}
 			    }
 			steps {
