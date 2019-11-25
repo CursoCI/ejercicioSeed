@@ -34,7 +34,9 @@ pipeline {
 		
 		stage('SonarQube analysis') { 
 			when {
-				expression { BRANCH_NAME == /(desarrollo)/ }
+				expression { 
+					${params.TOGGLE} == 'desarrollo' 
+				}
 			    }
 			steps {
 				withSonarQubeEnv('SonarCI') { 
