@@ -76,10 +76,9 @@ pipeline {
 			    VERSION = readMavenPom().getVersion()
 			  }
 			steps {
-				echo "${IMAGE}"
-				echo "${VERSION}"
+				echo "${IMAGE}-${VERSION}"
 				// Copiamos el artefacto generado a la carpeta del servidor
-				bat 'copy "target/"${IMAGE}"-"${VERSION}"" "C:/Tomcat/webapps/"'
+				bat 'copy "target/${IMAGE}-${VERSION}" "C:/Tomcat/webapps/"'
 			}
 		}
 		
