@@ -32,6 +32,22 @@ pipeline {
 		  
 		}
 		
+		stage('SonarQube analysis') { 
+			steps {
+				withSonarQubeEnv('SonarCI') { 
+				  bat 'mvn sonar:sonar ' + 
+				  '-f ./pom.xml ' +
+				  '-Dsonar.projectKey=cursoCImaven ' +
+				  '-Dsonar.language=java ' +
+				  '-Dsonar.sources=. ' +
+				  '-Dsonar.tests=. ' +
+				  '-Dsonar.java.binaries=./target/classes ' +
+				  '-Dsonar.test.inclusions=**/*Test*/** ' +
+				  '-Dsonar.exclusions=**/*Test*/**'
+				}
+			}
+		}	
+		
 		
 	}
 }
