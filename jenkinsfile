@@ -15,7 +15,7 @@ pipeline {
 		
 		stage('Configuracion ') {
 			steps {
-				bat 'mvn clean install sonar:sonar' 
+				bat 'mvn clean -Dmaven.test.failure.ignore=true install sonar:sonar' 
 			    }
 			    post {
 				success {
