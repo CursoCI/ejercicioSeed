@@ -71,7 +71,7 @@ pipeline {
 		stage('Despliegue') {
 			steps {
 				// Copiamos el artefacto generado a la carpeta del servidor
-				bat 'copy "target/*.war" "C:/Tomcat/webapps/"'
+				bat 'copy "target" "C:/Tomcat/webapps/"'
 			}
 		}
 		
