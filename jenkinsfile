@@ -11,7 +11,7 @@ pipeline {
 		
 		stage('Recursos') {
 			steps {
-				git url: 'https://github.com/jcintas/pruebaJenkinsfile.git', branch: ${params.rama}
+				git url: 'https://github.com/jcintas/pruebaJenkinsfile.git', branch: %params.rama%
 			}
 		}
 		
