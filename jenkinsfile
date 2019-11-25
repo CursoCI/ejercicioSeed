@@ -21,7 +21,7 @@ pipeline {
 			steps {
 				bat 'mvn install -DskipTests' 
 				def version = sh script: 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout', returnStdout: true
-				echo "${version}
+				echo "${version}"
 			}
 		}
 		
