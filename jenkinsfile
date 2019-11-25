@@ -4,6 +4,9 @@ pipeline {
 		maven 'maven-3.6.2' 
 		jdk 'JDK8' 
 	    }	
+	   parameters {
+        choice(name: 'rama', choices: ['master', 'desarrollo'], description: 'Seleccionar la rama sobre la que realizar la integración')
+    }
 	stages{
 		
 		stage('Recursos') {
@@ -35,7 +38,7 @@ pipeline {
 		stage('SonarQube analysis') { 
 			when {
 				expression { 
-					${params.TOGGLE} == 'desarrollo' 
+					${params.rama} == 'desarrollo' 
 				}
 			    }
 			steps {
