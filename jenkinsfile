@@ -5,7 +5,7 @@ pipeline {
 		jdk 'JDK8' 
 	    }	
 	   parameters {
-        choice(name: 'rama', choices: ['master', 'desarrollo'], description: 'Seleccionar la rama sobre la que realizar la integración')
+        choice(name: 'rama', choices: ['desarrollo', 'produccion'], description: 'Seleccionar la rama sobre la que realizar la integración')
     }
 	stages{
 		
