@@ -64,7 +64,6 @@ pipeline {
 		
 		stage('Pruebas Funcionales') {
 			steps {
-				input "¿Promocionar la entrega?"
 				echo 'Pruebas funcionales'
 			}
 		}
