@@ -1,5 +1,12 @@
 pipeline {
     agent any
+    	enviroment{
+	// Get Artifactory server instance, defined in the Artifactory Plugin administration page.
+				def server = Artifactory.server "SERVER_ID"
+				// Create an Artifactory Maven instance.
+				def rtMaven = Artifactory.newMavenBuild()
+				def buildInfo
+				}
 	
 	stages{
 		
@@ -12,11 +19,7 @@ pipeline {
 		
 		stage('Configuracion ') {
 			steps {
-				// Get Artifactory server instance, defined in the Artifactory Plugin administration page.
-				def server = Artifactory.server "SERVER_ID"
-				// Create an Artifactory Maven instance.
-				def rtMaven = Artifactory.newMavenBuild()
-				def buildInfo
+				
 				// Tool name from Jenkins configuration
 				rtMaven.tool = "Maven-3.3.9"
 				// Set Artifactory repositories for dependencies resolution and artifacts deployment.
