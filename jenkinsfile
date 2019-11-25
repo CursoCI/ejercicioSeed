@@ -11,7 +11,7 @@ pipeline {
 		
 		stage('Configuracion ') {
 			steps {
-				
+				bat 'echo dol'
 			}
 		}
 	}
