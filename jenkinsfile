@@ -69,12 +69,9 @@ pipeline {
 		}
 		
 		stage('Despliegue') {
-			environment { 
-                		AN_ACCESS_KEY = credentials('f0ac89e0-0648-428a-9dd2-8e02068a5292') 
-            		}
 			steps {
 				// Copiamos el artefacto generado a la carpeta del servidor
-				bat "curl -v -u $AN_ACCESS_KEY_USR:$AN_ACCESS_KEY_PSW -T target/*.war http:/localhost:8081/resources/manager/text/deploy?path=JenkinsFile&update=true"
+				bat "cp target/*.war TOMCAT_DIRECTORY/webapps/"
 			}
 		}
 		
