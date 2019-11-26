@@ -61,7 +61,7 @@ job('Test unitarios') {
     }
     
     publishers {
-        archiveJunit('./../Checkout Repositorio Des/target/surefire-reports/*.xml')
+        archiveJunit('**/../Checkout Repositorio Des/target/surefire-reports/*.xml')
     }
     
     triggers {
