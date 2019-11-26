@@ -34,7 +34,7 @@ job('Construccion Des') {
 job('Sonar') {
     steps {
         batchFile('mvn sonar:sonar ' + 
-          '-f ./pom.xml ' +
+          '-f ./../Checkout Repositorio Des/pom.xml ' +
           '-Dsonar.projectKey=cursoCImaven2 ' +
           '-Dsonar.language=java ' +
           '-Dsonar.sources=. ' +
