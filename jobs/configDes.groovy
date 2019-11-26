@@ -41,9 +41,7 @@ job('Sonar') {
           '-Dsonar.tests=. ' +
           '-Dsonar.java.binaries=./target/classes ' +
           '-Dsonar.test.inclusions=**/*Test*/** ' +
-          '-Dsonar.exclusions=**/*Test*/**'
-          )
-        }
+          '-Dsonar.exclusions=**/*Test*/**')
     }
     
     triggers {
