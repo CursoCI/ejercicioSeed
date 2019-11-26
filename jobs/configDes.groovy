@@ -75,6 +75,7 @@ job('Copiar') {
     steps {
         copyArtifacts('Checkout Repositorio Des') {
             includePatterns('target/*.war')
+            flatten(true)
             buildSelector {
                 workspace()
             }
