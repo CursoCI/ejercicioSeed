@@ -31,28 +31,9 @@ job('Construccion Des') {
     
 }
 
-job('Sonar') {
-    steps {
-        batchFile('mvn sonar:sonar ' + 
-          '-f ./../Checkout Repositorio Des/pom.xml ' +
-          '-Dsonar.projectKey=cursoCImaven2 ' +
-          '-Dsonar.language=java ' +
-          '-Dsonar.sources=. ' +
-          '-Dsonar.tests=. ' +
-          '-Dsonar.java.binaries=./target/classes ' +
-          '-Dsonar.test.inclusions=**/*Test*/** ' +
-          '-Dsonar.exclusions=**/*Test*/**')
-    }
-    
-    triggers {
-        upstream('Construccion Des', 'SUCCESS')
-    }
-}
-
-
 mavenJob('Sonar2') {
         goals('sonar:sonar')
-        rootPOM('./../Checkout Repositorio Des/')
+        rootPOM('./../Checkout Repositorio Des/pom.xml')
         mavenOpts('-Dsonar.projectKey=cursoCImaven2')
         mavenOpts('-Dsonar.language=java')
         mavenOpts('-Dsonar.sources=.')
