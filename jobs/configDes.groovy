@@ -1,6 +1,4 @@
-job('Construcción Desarrollo') {
-    jdk('JDK8')
-    
+job('Build') {
     steps {
         maven {
             goals('clean')
