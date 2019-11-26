@@ -7,5 +7,14 @@ job('Checkout Repositorio Des') {
              branch('desarrollo')
         }
     }
+}
+
+
+mavenJob('Construcción Des') {
+    jdk('Java 8')
     
+    triggers {
+        upstream('Checkout Repositorio Des', 'SUCCESS')
+    }
+    goals('clean install verify')
 }
