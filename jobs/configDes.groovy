@@ -71,7 +71,7 @@ job('Test unitarios') {
 
 
 
-job('Copiar') {
+job('Desplegar Des') {
     steps {
         copyArtifacts('Checkout Repositorio Des') {
             includePatterns('target/*.war')
@@ -81,6 +81,10 @@ job('Copiar') {
                 workspace()
             }
         }
+    }
+    
+    triggers {
+        upstream('Test unitarios', 'SUCCESS')
     }
 }
 
