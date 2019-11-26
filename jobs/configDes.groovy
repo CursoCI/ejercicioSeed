@@ -74,9 +74,9 @@ job('Test unitarios') {
 job('Copiar') {
     steps {
         copyArtifacts('Checkout Repositorio Des') {
-            optional()
+            includePatterns('target/*.war')
             buildSelector {
-                latestSuccessful(true)
+                workspace()
             }
         }
     }
