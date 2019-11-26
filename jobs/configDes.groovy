@@ -74,10 +74,6 @@ job('Test unitarios') {
 job('Copiar') {
     steps {
         copyArtifacts('Checkout Repositorio Des') {
-            includePatterns('*.xml', '*.properties')
-            excludePatterns('test.xml', 'test.properties')
-            targetDirectory('files')
-            flatten()
             optional()
             buildSelector {
                 latestSuccessful(true)
