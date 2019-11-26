@@ -33,7 +33,7 @@ job('Construccion Des') {
 
 job('Sonar') {
     steps {
-        batchFile{'mvn sonar:sonar ' + 
+        batchFile('mvn sonar:sonar ' + 
           '-f ./pom.xml ' +
           '-Dsonar.projectKey=cursoCImaven2 ' +
           '-Dsonar.language=java ' +
@@ -42,7 +42,7 @@ job('Sonar') {
           '-Dsonar.java.binaries=./target/classes ' +
           '-Dsonar.test.inclusions=**/*Test*/** ' +
           '-Dsonar.exclusions=**/*Test*/**'
-          }
+          )
         }
     }
     
