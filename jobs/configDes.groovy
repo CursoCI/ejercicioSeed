@@ -15,6 +15,7 @@ job('Construccion Des') {
     steps {
         maven {
             goals('clean')
+            goals('install')
             goals('verify')
             mavenOpts('-Xms256m')
             mavenOpts('-Xmx512m')
@@ -48,18 +49,23 @@ mavenJob('Analisis Sonar') {
     }
 }
 
-job('Publicar Sonar') {
-    publishers {
-        sonar {
-            branch('cursoCImaven2')
-            overrideTriggers {
-                skipIfEnvironmentVariable('SKIP_SONAR')
-            }
+job('Test unitarios') {
+    steps {
+        maven {
+            goals('test')
+            mavenOpts('-Xms256m')
+            mavenOpts('-Xmx512m')
+            mavenInstallation('maven-3.6.2')
+            rootPOM('./../Checkout Repositorio Des/')
         }
     }
     
+    publishers {
+        archiveJunit('./../Checkout Repositorio Des/target/surefire-reports/*.xml')
+    }
+    
     triggers {
-        upstream('Analisis Sonar', 'SUCCESS')
+        upstream('Construccion Des', 'SUCCESS')
     }
 }
 
