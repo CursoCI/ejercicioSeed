@@ -48,6 +48,21 @@ mavenJob('Analisis Sonar') {
     }
 }
 
+job('Publicar Sonar') {
+    publishers {
+        sonar {
+            branch('cursoCImaven2')
+            overrideTriggers {
+                skipIfEnvironmentVariable('SKIP_SONAR')
+            }
+        }
+    }
+    
+    triggers {
+        upstream('Analisis Sonar', 'SUCCESS')
+    }
+}
+
 
 
 
