@@ -13,6 +13,7 @@ job('Construccion Des') {
     jdk('JDK8')
     
     steps {
+        bat 'dir ./../Checkout Repositorio Des/'
         maven {
             goals('clean')
             goals('verify')
@@ -21,6 +22,7 @@ job('Construccion Des') {
             localRepository(LocalRepositoryLocation.LOCAL_TO_WORKSPACE)
             properties(skipTests: true)
             mavenInstallation('maven-3.6.2')
+            rootPOM('./../Checkout Repositorio Des/')
         }
     }
     
