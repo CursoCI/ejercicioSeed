@@ -69,21 +69,7 @@ job('Test unitarios') {
     }
 }
 
-job('Despligue Des') {
-    customWorkspace('./workspace/Checkout Repositorio Des')
-    environmentVariables {
-			    IMAGE = readMavenPom().getArtifactId()
-			    VERSION = readMavenPom().getVersion()
-			  }
-    steps {
-        // Copiamos el artefacto generado a la carpeta del servidor
-        batchFile("copy target\\${IMAGE}-${VERSION}.war C:\\Tomcat\\webapps\\")
-    }
-    
-    triggers {
-        upstream('Test unitarios', 'SUCCESS')        
-    }
-}
+
 
 job('Copiar') {
     steps {
