@@ -1,7 +1,6 @@
 pipelineJob('Checkout Repositorio Des') {
     definition {
-        cpsScm {
-            scm {
+        scm {
                 git('https://github.com/jcintas/ejercicioSemilla.git', 'desarrollo'){
                         remote {
                         github('account/repo', 'ssh')
@@ -9,6 +8,5 @@ pipelineJob('Checkout Repositorio Des') {
                     }
                 }
             }
-        }
     }
 }
