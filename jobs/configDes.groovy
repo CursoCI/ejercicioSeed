@@ -10,7 +10,7 @@ job('Checkout Repositorio Des') {
 }
 
 job('Construccion Des') {
-    java('JDK8')
+    jdk('JDK8')
     
     steps {
         maven {
