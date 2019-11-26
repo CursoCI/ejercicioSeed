@@ -10,11 +10,21 @@ job('Checkout Repositorio Des') {
 }
 
 
-mavenJob('Construcción Des') {
+job('Construcción Des') {
     jdk('JDK8')
     
     triggers {
         upstream('Checkout Repositorio Des', 'SUCCESS')
     }
-    goals('clean install verify')
+    steps {
+        maven {
+            goals('clean')
+            goals('verify')
+            mavenOpts('-Xms256m')
+            mavenOpts('-Xmx512m')
+            localRepository(LocalRepositoryLocation.LOCAL_TO_WORKSPACE)
+            properties(skipTests: true)
+            mavenInstallation('maven-3.6.2')
+        }
+    }
 }
