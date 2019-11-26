@@ -1,4 +1,4 @@
-job('Build') {
+job('Construcción Des') {
     steps {
         maven {
             goals('clean')
