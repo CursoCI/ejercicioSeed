@@ -50,14 +50,13 @@ mavenJob('Analisis Sonar') {
 }
 
 job('Test unitarios') {
-    customWorkspace('./../Checkout Repositorio Des')
+    customWorkspace('./workpace/Checkout Repositorio Des')
     steps {
         maven {
             goals('test')
             mavenOpts('-Xms256m')
             mavenOpts('-Xmx512m')
             mavenInstallation('maven-3.6.2')
-            rootPOM('./../Checkout Repositorio Des/')
         }
     }
     
