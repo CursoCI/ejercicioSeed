@@ -76,6 +76,7 @@ job('Copiar') {
         copyArtifacts('Checkout Repositorio Des') {
             includePatterns('target/*.war')
             flatten(true)
+            targetDirectory('C:/Tomcat/webapps/')
             buildSelector {
                 workspace()
             }
