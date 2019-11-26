@@ -50,7 +50,7 @@ mavenJob('Analisis Sonar') {
 }
 
 job('Test unitarios') {
-    customWorkspace('./workpace/Checkout Repositorio Des')
+    customWorkspace('./workspace/Checkout Repositorio Des')
     steps {
         maven {
             goals('test')
