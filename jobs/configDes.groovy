@@ -69,6 +69,17 @@ job('Test unitarios') {
     }
 }
 
+job('Despligue Des') {
+    customWorkspace('./workspace/Checkout Repositorio Des')
+    
+    
+    triggers {
+        upstream('Test unitarios', 'SUCCESS')
+        upstream('Analisis Sonar', 'SUCCESS')
+        
+    }
+}
+
 
 
 
