@@ -1,4 +1,17 @@
-job('Construcción Des') {
+job('Checkout Repositorio Des') {
+    scm {
+        git{
+            remote {
+                url('https://github.com/jcintas/ejercicioSemilla.git')
+            }
+             branch('desarrollo')
+        }
+    }
+}
+
+job('Construccion Des') {
+    java('JDK8')
+    
     steps {
         maven {
             goals('clean')
@@ -11,18 +24,10 @@ job('Construcción Des') {
         }
     }
     
-}
-
-
-job('Checkout Repositorio Des') {
-    scm {
-        git{
-            remote {
-                url('https://github.com/jcintas/ejercicioSemilla.git')
-            }
-             branch('desarrollo')
-        }
+    triggers {
+        upstream('Checkout Repositorio Des', 'SUCCESS')
     }
+    
 }
 
 
