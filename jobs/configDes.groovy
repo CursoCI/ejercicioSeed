@@ -50,6 +50,7 @@ mavenJob('Analisis Sonar') {
 }
 
 job('Test unitarios') {
+    customWorkspace('./../Checkout Repositorio Des')
     steps {
         maven {
             goals('test')
@@ -61,7 +62,7 @@ job('Test unitarios') {
     }
     
     publishers {
-        archiveJunit('**/../Checkout Repositorio Des/target/surefire-reports/*.xml')
+        archiveJunit('**/target/surefire-reports/*.xml')
     }
     
     triggers {
