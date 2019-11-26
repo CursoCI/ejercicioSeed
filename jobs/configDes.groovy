@@ -13,7 +13,7 @@ job('Construccion Des') {
     jdk('JDK8')
     
     steps {
-        batch('dir')
+        batchFile('dir')
         maven {
             goals('clean')
             goals('verify')
