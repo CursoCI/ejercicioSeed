@@ -11,7 +11,7 @@ job('Checkout Repositorio Des') {
 
 
 mavenJob('Construcción Des') {
-    jdk('Java 8')
+    jdk('JDK8')
     
     triggers {
         upstream('Checkout Repositorio Des', 'SUCCESS')
