@@ -31,16 +31,16 @@ job('Construccion Des') {
     
 }
 
-mavenJob('Sonar2') {
+mavenJob('Analisis Sonar') {
         goals('sonar:sonar')
         rootPOM('./../Checkout Repositorio Des/pom.xml')
-        mavenOpts('-Dsonar.projectKey=cursoCImaven2')
-        mavenOpts('-Dsonar.language=java')
-        mavenOpts('-Dsonar.sources=.')
-        mavenOpts('-Dsonar.tests=. ')
-        mavenOpts('-Dsonar.java.binaries=./target/classes')
-        mavenOpts('-Dsonar.test.inclusions=**/*Test*/** ')
-        mavenOpts('-Dsonar.exclusions=**/*Test*/**')
+        goals('-Dsonar.projectKey=cursoCImaven2')
+        goals('-Dsonar.language=java')
+        goals('-Dsonar.sources=.')
+        goals('-Dsonar.tests=. ')
+        goals('-Dsonar.java.binaries=./target/classes')
+        goals('-Dsonar.test.inclusions=**/*Test*/** ')
+        goals('-Dsonar.exclusions=**/*Test*/**')
         mavenInstallation('maven-3.6.2')
     
     triggers {
