@@ -49,44 +49,10 @@ mavenJob('Analisis Sonar') {
     }
 }
 
-job('Test unitarios') {
-    customWorkspace('./workspace/Checkout Repositorio Des')
-    steps {
-        maven {
-            goals('test')
-            mavenOpts('-Xms256m')
-            mavenOpts('-Xmx512m')
-            mavenInstallation('maven-3.6.2')
-        }
-    }
-    
-    publishers {
-        archiveJunit('**/target/surefire-reports/*.xml')
-    }
-    
-    triggers {
-        upstream('Analisis Sonar', 'SUCCESS')
-    }
-}
 
 
 
-job('Desplegar Des') {
-    steps {
-        copyArtifacts('Checkout Repositorio Des') {
-            includePatterns('target/*.war')
-            flatten(true)
-            targetDirectory('C:/Tomcat/webapps/')
-            buildSelector {
-                workspace()
-            }
-        }
-    }
-    
-    triggers {
-        upstream('Test unitarios', 'SUCCESS')
-    }
-}
+
 
 
 
